@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Tool Prompt Generator Gambar</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  padding: 20px;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+}
+h2 {
+  text-align: center;
+}
+label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  font-size: 14px;
+}
+textarea {
+  min-height: 70px;
+}
+button {
+  margin-top: 25px;
+  padding: 14px;
+  width: 100%;
+  font-size: 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.output {
+  margin-top: 25px;
+  background: #111;
+  color: #0f0;
+  padding: 15px;
+  white-space: pre-wrap;
+  font-family: monospace;
+  border-radius: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Tool Prompt Pembuatan Gambar</h2>
+
+<label>1. Jenis gambar</label>
+<input id="jenis" placeholder="Contoh: foto realistis / ilustrasi / banner promosi / poster">
+
+<label>2. Subjek utama</label>
+<textarea id="subjek" placeholder="Contoh: ojek langganan tersenyum, guru mengajar, pengusaha, produk makanan"></textarea>
+
+<label>3. Aksi atau pose</label>
+<textarea id="aksi" placeholder="Contoh: sedang tersenyum, menunjuk layar, membawa paket, memegang HP"></textarea>
+
+<label>4. Background</label>
+<textarea id="bg" placeholder="Contoh: studio polos, kantor modern, jalan kota, gradient lembut"></textarea>
+
+<label>5. Komposisi gambar</label>
+<input id="komposisi" placeholder="Contoh: close-up, medium shot, full body, rule of thirds">
+
+<label>6. Mood & style</label>
+<input id="mood" placeholder="Contoh: profesional, cinematic, minimalis, elegan">
+
+<label>7. Warna dominan</label>
+<input id="warna" placeholder="Contoh: biru, emas, hitam elegan, toska">
+
+<label>8. Elemen tambahan (opsional)</label>
+<textarea id="elemen" placeholder="Contoh: teks promo tipis, icon WA, logo brand kecil"></textarea>
+
+<label>9. Rasio gambar</label>
+<input id="rasio" placeholder="Contoh: 1:1 Instagram / 9:16 Story / 16:9 YouTube">
+
+<label>10. Kualitas</label>
+<textarea id="kualitas" placeholder="ultra high detail, resolusi tinggi, clean edges, sharp focus, professional lighting"></textarea>
+
+<button onclick="generate()">Generate Prompt</button>
+
+<div class="output" id="output"></div>
+</div>
+
+<script>
+function generate() {
+  const prompt = 
+`Buatkan gambar dengan deskripsi:
+
+Jenis gambar: ${jenis.value}
+Subjek utama: ${subjek.value}
+Aksi atau pose: ${aksi.value}
+Background: ${bg.value}
+Komposisi gambar: ${komposisi.value}
+Mood & style: ${mood.value}
+Warna dominan: ${warna.value}
+Elemen tambahan: ${elemen.value}
+Rasio gambar: ${rasio.value}
+
+Kualitas:
+${kualitas.value}`;
+
+  document.getElementById("output").innerText = prompt;
+}
+</script>
+
+</body>
+</html>
