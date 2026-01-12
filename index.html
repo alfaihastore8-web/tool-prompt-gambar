@@ -2,118 +2,182 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Tool Prompt Generator Gambar</title>
+<title>Tool Prompt Gambar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body {
+body{
   font-family: Arial, sans-serif;
-  background: #f3f4f6;
-  padding: 20px;
+  background:#f2f2f2;
+  padding:20px;
 }
-.container {
-  max-width: 900px;
-  margin: auto;
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
+.box{
+  max-width:800px;
+  margin:auto;
+  background:#ffffff;
+  padding:20px;
+  border-radius:8px;
 }
-h2 {
-  text-align: center;
+h1{
+  text-align:center;
 }
-label {
-  font-weight: bold;
-  margin-top: 15px;
-  display: block;
+label{
+  font-weight:bold;
+  display:block;
+  margin-top:15px;
 }
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  font-size: 14px;
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border:1px solid #ccc;
+  border-radius:5px;
 }
-textarea {
-  min-height: 70px;
+textarea{
+  min-height:80px;
 }
-button {
-  margin-top: 25px;
-  padding: 14px;
-  width: 100%;
-  font-size: 16px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+button{
+  margin-top:15px;
+  padding:12px;
+  width:100%;
+  font-size:16px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
 }
-.output {
-  margin-top: 25px;
-  background: #111;
-  color: #0f0;
-  padding: 15px;
-  white-space: pre-wrap;
-  font-family: monospace;
-  border-radius: 8px;
+.btn-generate{
+  background:#2563eb;
+  color:white;
+}
+.btn-copy{
+  background:#16a34a;
+  color:white;
+}
+#hasil{
+  margin-top:15px;
+  min-height:200px;
+}
+small{
+  display:block;
+  text-align:center;
+  margin-top:10px;
+  color:#666;
 }
 </style>
 </head>
+
 <body>
+<div class="box">
+<h1>Tool Prompt Gambar</h1>
 
-<div class="container">
-<h2>Tool Prompt Pembuatan Gambar</h2>
+<label>1. Jenis Gambar</label>
+<input list="jenisList" id="jenis" placeholder="contoh: foto realistis, ilustrasi, banner promosi">
+<datalist id="jenisList">
+  <option value="foto realistis">
+  <option value="ilustrasi digital">
+  <option value="flat vector">
+  <option value="banner promosi">
+  <option value="poster">
+</datalist>
 
-<label>1. Jenis gambar</label>
-<input id="jenis" placeholder="Contoh: foto realistis / ilustrasi / banner promosi / poster">
+<label>2. Subjek Utama</label>
+<input list="subjekList" id="subjek" placeholder="contoh: santri, guru, produk, pengusaha">
+<datalist id="subjekList">
+  <option value="santri laki-laki">
+  <option value="guru mengajar">
+  <option value="pengusaha muda">
+  <option value="produk makanan">
+</datalist>
 
-<label>2. Subjek utama</label>
-<textarea id="subjek" placeholder="Contoh: ojek langganan tersenyum, guru mengajar, pengusaha, produk makanan"></textarea>
-
-<label>3. Aksi atau pose</label>
-<textarea id="aksi" placeholder="Contoh: sedang tersenyum, menunjuk layar, membawa paket, memegang HP"></textarea>
+<label>3. Aksi / Pose</label>
+<input list="aksiList" id="aksi" placeholder="contoh: tersenyum, memegang buku">
+<datalist id="aksiList">
+  <option value="tersenyum">
+  <option value="memegang buku">
+  <option value="menunjuk layar">
+  <option value="berdiri tegap">
+</datalist>
 
 <label>4. Background</label>
-<textarea id="bg" placeholder="Contoh: studio polos, kantor modern, jalan kota, gradient lembut"></textarea>
+<input list="bgList" id="bg" placeholder="contoh: studio, alam, warna polos">
+<datalist id="bgList">
+  <option value="studio polos">
+  <option value="alam pegunungan">
+  <option value="kantor modern">
+  <option value="gradient lembut">
+</datalist>
 
-<label>5. Komposisi gambar</label>
-<input id="komposisi" placeholder="Contoh: close-up, medium shot, full body, rule of thirds">
+<label>5. Komposisi</label>
+<input list="komposisiList" id="komposisi" placeholder="contoh: medium shot, close-up">
+<datalist id="komposisiList">
+  <option value="close-up">
+  <option value="medium shot">
+  <option value="full body">
+  <option value="rule of thirds">
+</datalist>
 
-<label>6. Mood & style</label>
-<input id="mood" placeholder="Contoh: profesional, cinematic, minimalis, elegan">
+<label>6. Mood & Style</label>
+<input list="moodList" id="mood" placeholder="contoh: profesional, elegan">
+<datalist id="moodList">
+  <option value="profesional">
+  <option value="elegan">
+  <option value="cinematic">
+  <option value="minimalis">
+</datalist>
 
-<label>7. Warna dominan</label>
-<input id="warna" placeholder="Contoh: biru, emas, hitam elegan, toska">
+<label>7. Warna Dominan</label>
+<input list="warnaList" id="warna" placeholder="contoh: emas, biru">
+<datalist id="warnaList">
+  <option value="emas">
+  <option value="biru">
+  <option value="hitam elegan">
+  <option value="natural">
+</datalist>
 
-<label>8. Elemen tambahan (opsional)</label>
-<textarea id="elemen" placeholder="Contoh: teks promo tipis, icon WA, logo brand kecil"></textarea>
+<label>8. Rasio Gambar</label>
+<input list="rasioList" id="rasio" placeholder="contoh: 1:1 Instagram, 9:16 Story">
+<datalist id="rasioList">
+  <option value="1:1 Instagram">
+  <option value="4:5 Feed Instagram">
+  <option value="9:16 Story / Reels">
+  <option value="16:9 Landscape">
+</datalist>
 
-<label>9. Rasio gambar</label>
-<input id="rasio" placeholder="Contoh: 1:1 Instagram / 9:16 Story / 16:9 YouTube">
+<label>9. Elemen Tambahan</label>
+<textarea id="elemen" placeholder="teks, ikon, logo, watermark"></textarea>
 
 <label>10. Kualitas</label>
-<textarea id="kualitas" placeholder="ultra high detail, resolusi tinggi, clean edges, sharp focus, professional lighting"></textarea>
+<textarea id="kualitas">ultra high detail, high resolution, sharp focus, clean edges, professional lighting</textarea>
 
-<button onclick="generate()">Generate Prompt</button>
+<button class="btn-generate" onclick="buatPrompt()">Generate Prompt</button>
 
-<div class="output" id="output"></div>
+<textarea id="hasil" placeholder="Hasil prompt muncul di sini"></textarea>
+
+<button class="btn-copy" onclick="salinPrompt()">📋 Copy 1 Klik</button>
+
+<small>Tool Prompt Gambar – bebas dibagikan</small>
 </div>
 
 <script>
-function generate() {
-  const prompt = 
-`Buatkan gambar dengan deskripsi:
+function buatPrompt(){
+  var teks =
+"Buatkan gambar " + jenis.value +
+" dengan subjek utama " + subjek.value +
+", aksi " + aksi.value +
+", background " + bg.value +
+", komposisi " + komposisi.value +
+", mood dan gaya " + mood.value +
+", warna dominan " + warna.value +
+", rasio gambar " + rasio.value +
+". Elemen tambahan: " + elemen.value +
+". Kualitas: " + kualitas.value + ".";
+  document.getElementById("hasil").value = teks;
+}
 
-Jenis gambar: ${jenis.value}
-Subjek utama: ${subjek.value}
-Aksi atau pose: ${aksi.value}
-Background: ${bg.value}
-Komposisi gambar: ${komposisi.value}
-Mood & style: ${mood.value}
-Warna dominan: ${warna.value}
-Elemen tambahan: ${elemen.value}
-Rasio gambar: ${rasio.value}
-
-Kualitas:
-${kualitas.value}`;
-
-  document.getElementById("output").innerText = prompt;
+function salinPrompt(){
+  var h = document.getElementById("hasil");
+  h.select();
+  document.execCommand("copy");
+  alert("Prompt berhasil disalin");
 }
 </script>
 
